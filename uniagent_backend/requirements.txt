@@ -8,3 +8,4 @@ langchain-community>=0.0.20
 pypdf2>=3.0
 python-dotenv>=1.0
 gunicorn>=21.2
+psycopg2-binary
