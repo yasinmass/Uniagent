@@ -7,7 +7,9 @@ import {
   FileText, 
   PieChart,
   ArrowUpRight,
-  Clock
+  Clock,
+  Trash2,
+  Loader2
 } from 'lucide-react';
 
 const icons = {
@@ -18,7 +20,7 @@ const icons = {
   PieChart
 };
 
-const AgentCard = ({ id, name, description, iconName, createdAt }) => {
+const AgentCard = ({ id, name, description, iconName, createdAt, onDelete, isDeleting }) => {
   const Icon = icons[iconName] || icons.User;
 
   return (
@@ -30,9 +32,25 @@ const AgentCard = ({ id, name, description, iconName, createdAt }) => {
           <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center border border-border group-hover:border-white/20 transition-all">
             <Icon size={24} className="text-gray-500 group-hover:text-white transition-colors" />
           </div>
-          <div className="flex items-center gap-2 text-[10px] font-bold text-gray-600 uppercase tracking-widest pl-2">
-            <Clock size={12} />
-            {createdAt}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-[10px] font-bold text-gray-600 uppercase tracking-widest">
+              <Clock size={12} />
+              {createdAt}
+            </div>
+            {/* Delete button — only shown on hover */}
+            {onDelete && (
+              <button
+                onClick={onDelete}
+                disabled={isDeleting}
+                title="Delete agent"
+                className="w-7 h-7 rounded-lg bg-transparent border border-transparent flex items-center justify-center text-gray-600 hover:text-red-400 hover:border-red-500/30 hover:bg-red-500/10 opacity-0 group-hover:opacity-100 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                {isDeleting
+                  ? <Loader2 size={14} className="animate-spin" />
+                  : <Trash2 size={14} />
+                }
+              </button>
+            )}
           </div>
         </div>
 
