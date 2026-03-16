@@ -177,11 +177,5 @@ Result:  real PostgreSQL rows returned ✅
 
 ---
 
-## Built For
-
-**Responsive Hackathon 2026**  
-*PS: Actionable AI Agents for College / University Management*
-
----
 
 <p align="center"><i>Every university. Every workflow. One platform.</i></p>
